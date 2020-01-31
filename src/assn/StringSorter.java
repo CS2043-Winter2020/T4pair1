@@ -34,21 +34,25 @@ public class StringSorter {
 	public void sort(){
 		//Collections.sort(lines);
 				int j = lines.size()-1;
-				while (j>0){
-					List <String> sublist = lines.subList(0,j+1);
-					int index = 0;
-					String str = sublist.get(index);
-					for (int i=0; i<sublist.size(); i++){
-						if (str.compareTo(sublist.get(i))<=0){
-							index = i;
-							str = sublist.get(index);
-						}
-					}
-					lines.set(index, lines.get(j));
-					lines.set(j, str);
-					j = j-1;
-				}
+				findLastLine(j);
 				System.out.println("Sort Complete");
 		}
+
+	private void findLastLine(int j) {
+		while (j>0){
+			List <String> sublist = lines.subList(0,j+1);
+			int index = 0;
+			String str = sublist.get(index);
+			for (int i=0; i<sublist.size(); i++){
+				if (str.compareTo(sublist.get(i))<=0){
+					index = i;
+					str = sublist.get(index);
+				}
+			}
+			lines.set(index, lines.get(j));
+			lines.set(j, str);
+			j = j-1;
+		}
+	}
 		
 }
