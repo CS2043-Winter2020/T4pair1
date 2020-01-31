@@ -20,7 +20,7 @@ public class StringSorter {
 		}
 		in.close();
 	}
-	//
+	
 	public void write(File sortedData) throws FileNotFoundException{
 		PrintWriter out = new PrintWriter(sortedData);
 		Iterator<String> it =lines.iterator();
