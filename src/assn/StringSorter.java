@@ -1,4 +1,3 @@
-
 package assn;
 
 import java.io.File;
@@ -33,22 +32,28 @@ public class StringSorter {
 	//This is the raw version which needs to be refactored
 	public void sort(){
 		//Collections.sort(lines);
-				int j = lines.size()-1;
-				while (j>0){
-					List <String> sublist = lines.subList(0,j+1);
-					int index = 0;
-					String str = sublist.get(index);
-					for (int i=0; i<sublist.size(); i++){
-						if (str.compareTo(sublist.get(i))<=0){
-							index = i;
-							str = sublist.get(index);
-						}
-					}
-					lines.set(index, lines.get(j));
-					lines.set(j, str);
-					j = j-1;
-				}
-				System.out.println("Sort Complete");
+		int j = lines.size()-1;
+		while (j>0){
+			List <String> sublist = lines.subList(0,j+1);
+			int index = findLastLine(sublist);
+			String str = sublist.get(index);
+			lines.set(index, lines.get(j));
+			lines.set(j, str);
+			j = j-1;
 		}
+	System.out.println("Sort Complete");
+	}
+	
+	private int findLastLine(List<String> sublist) {
+		int index = 0;
+		String str = "";
+		for (int i=0; i<sublist.size(); i++){
+			if (str.compareTo(sublist.get(i))<=0) {
+				index = i;
+				str = sublist.get(index);
+			}
+		}
+		return index;
+	}
 		
 }
