@@ -36,8 +36,9 @@ public class StringSorter {
 		while (j>0){
 			List <String> sublist = lines.subList(0,j+1);
 			int index = findLastLine(sublist);
+			String str = sublist.get(index);
 			lines.set(index, lines.get(j));
-			lines.set(j, sublist.get(index));
+			lines.set(j, str);
 			j = j-1;
 		}
 	System.out.println("Sort Complete");
@@ -46,7 +47,7 @@ public class StringSorter {
 	// Accepts a sublist of lines and returns the index for the line that should be moved to the end of the list. 
 	private int findLastLine(List<String> sublist) {
 		int index = 0;
-		String str = "";
+		String str = sublist.get(index);
 		for (int i=0; i<sublist.size(); i++){
 			if (str.compareTo(sublist.get(i))<=0) {
 				index = i;
