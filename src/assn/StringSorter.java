@@ -37,11 +37,19 @@ public class StringSorter {
 			List <String> sublist = lines.subList(0,j+1);
 			int index = findLastLine(sublist);
 			String str = sublist.get(index);
-			lines.set(index, lines.get(j));
-			lines.set(j, str);
+			swap(j, index, str);
 			j = j-1;
 		}
+		
+		
 	System.out.println("Sort Complete");
+	}
+	
+	private void swap(int j, int index, String str)	{
+		
+		lines.set(index, lines.get(j));
+		lines.set(j, str);
+	
 	}
 	
 	// Accepts a sublist of lines and returns the index for the line that should be moved to the end of the list. 
